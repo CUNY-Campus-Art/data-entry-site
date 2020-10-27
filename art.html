@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gallery Data Entry</title>
+  <meta charset="utf-8">
+  <meta charset="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="artsheet.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row px-3">
+      <div class="col-lg-10 col-x1-9 card flex-row mx-auto px-0">
+        <div class="img-left d-none d-md-flex"></div>
+
+        <div class="card-body">
+          <!-- <h4 class="title text-center mt-4">
+            Enter data for your campus's artwork
+          </h4> -->
+          <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Welcome to Gallery</h1>
+    <p class="lead">Complete the fields below to submit a new piece of artwork for your campus.</p>
+  </div>
+</div>
+  
+  <form>
+    <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+  </div>
+  <input type="text" class="form-control" placeholder="John Doe" aria-label="Username" aria-describedby="basic-addon1" required>
+</div>
+
+<div class="input-group mb-3">
+   <div class="input-group-append">
+    <span class="input-group-text" id="basic-addon2"><i class=" fa fa-envelope"></i></span>
+  </div>
+  <input type="text" class="form-control" placeholder="user@domain.com" aria-label="Recipient's email" aria-describedby="basic-addon2" required>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01"><i class="fa fa-university"></i></label>
+  </div>
+  <select class="custom-select" id="inputGroupSelect01">
+    <option selected>Select your campus</option>
+    <option value="1">CUNY Brooklyn College</option>
+    <option value="2">CUNY Queens College</option>
+    <option value="3">CUNY City College</option>
+  </select>
+</div>
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text"><i class="fa fa-paint-brush"></i></span>
+  </div>
+  <input type="text" class="form-control" placeholder="Mona Lisa" required>
+  <!-- <div class="input-group-append">
+    <span class="input-group-text">.00</span>
+  </div> -->
+</div>
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroupFileAddon01"><i class="fa fa-image"></i></span>
+  </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+  </div>
+</div>
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text"><i class="fa fa-edit"></i></span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea" required></textarea>
+</div>
+</form>
+
+</body>
+</html>
