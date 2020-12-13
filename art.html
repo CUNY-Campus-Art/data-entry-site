@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 </head>
+
 <body>
   <div class="container">
     <div class="row px-3">
@@ -27,32 +28,24 @@
 </div>
   
   <form>
-    <div class="input-group mb-3">
+  	<div class="input-group mb-3">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+    <label class="input-group-text"><i class="fa fa-university"></i></label>
   </div>
-  <input type="text" class="form-control" placeholder="John Doe" aria-label="Username" aria-describedby="basic-addon1" required>
-</div>
-
-<div class="input-group mb-3">
-   <div class="input-group-append">
-    <span class="input-group-text" id="basic-addon2"><i class=" fa fa-envelope"></i></span>
-  </div>
-  <input type="text" class="form-control" placeholder="user@domain.com" aria-label="Recipient's email" aria-describedby="basic-addon2" required>
-</div>
-
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01"><i class="fa fa-university"></i></label>
-  </div>
-  <select class="custom-select" id="inputGroupSelect01">
-    <option selected>Select your campus</option>
+  <select class="custom-select">
+    <option value=" ">Select your campus</option>
     <option value="1">CUNY Brooklyn College</option>
     <option value="2">CUNY Queens College</option>
     <option value="3">CUNY City College</option>
   </select>
 </div>
 
+    <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+  </div>
+  <input type="text" class="form-control" placeholder="Leonardo Davinci" aria-label="artist name" aria-describedby="basic-addon1" required>
+</div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
@@ -64,6 +57,15 @@
   </div> -->
 </div>
 
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+  </div>
+  <input type="text" class="form-control" placeholder="1503" required>
+  <!-- <div class="input-group-append">
+    <span class="input-group-text">.00</span>
+  </div> -->
+</div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
@@ -77,11 +79,24 @@
 
 <div class="input-group">
   <div class="input-group-prepend">
-    <span class="input-group-text"><i class="fa fa-edit"></i></span>
+    <span class="input-group-text"><i class="fa fa-search"></i></span>
   </div>
-  <textarea class="form-control" aria-label="With textarea" required></textarea>
+  <textarea class="form-control" aria-label="With textarea" placeholder="Look for the girl with the mysterious smile..." required></textarea>
 </div>
 </form>
+
+<br>
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text"><i class="fa fa-edit"></i></span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea" placeholder="Additional details" required></textarea>
+</div>
+<br>
+<button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+
 
 </body>
 </html>
