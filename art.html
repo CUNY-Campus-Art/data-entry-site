@@ -49,14 +49,14 @@
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
   </div>
-  <input type="text" id="artist" class="form-control" placeholder="Leonardo Davinci" aria-label="artist name" aria-describedby="basic-addon1" required>
+  <input type="text" id="artist" class="form-control" placeholder="Leonardo Davinci" aria-label="artist name" aria-describedby="basic-addon1" required> 
 </div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text"><i class="fa fa-paint-brush"></i></span>
   </div>
-  <input type="text" id="arttitle" class="form-control" placeholder="Mona Lisa" required>
+  <input type="text" id="artTitle" class="form-control" placeholder="Mona Lisa" required>
   <!-- <div class="input-group-append">
     <span class="input-group-text">.00</span>
   </div> -->
@@ -107,11 +107,27 @@
 </html>
 
 <script>
-	function validateForm() {
+
+	$("#submitform").click(()=> {
+		console.log();
+	});
+
+	$('#artTitle').val()
+
+	con = new StrapiApiConnection();
+	userLogin();
+
+async function userLogin() {
+	await con.loginUser("artworkmanager","2h2Ghswq$%Oxcl");
+}
+async function validateForm() {
   if (document.getElementById("arttitle").validity.valueMissing) {
     console.log("Cannot be empty");
   } else {
     console.log("OK");
   } 
+const newArtwork = await con.createArtwork({title: "new artwork from js", artist:"new artist", description:"test description", year: "2000"});
+   console.log("new artwork",newArtwork);
+
 }
 </script>
