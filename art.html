@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Gallery Data Entry</title>
+  <title>Gallery Data Entry</title>
   <meta charset="utf-8">
   <meta charset="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" type="text/css" href="artsheet.css">
+  <!-- <link rel="stylesheet" type="text/css" href="artsheet.css"> -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
 </head>
 
 <body>
@@ -21,82 +23,175 @@
             Enter data for your campus's artwork
           </h4> -->
           <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Welcome to Gallery</h1>
-    <p class="lead">Complete the fields below to submit a new piece of artwork for your campus.</p>
-  </div>
-</div>
-  
-  <form>
-  	<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <label class="input-group-text"><i class="fa fa-university"></i></label>
-  </div>
-  <select class="custom-select">
-    <option value=" ">Select your campus</option>
-    <option value="1">CUNY Brooklyn College</option>
-    <option value="2">CUNY Queens College</option>
-    <option value="3">CUNY City College</option>
-  </select>
-</div>
+            <div class="container">
+              <h1 class="display-4">Welcome to Gallery</h1>
+              <p class="lead">Complete the fields below to submit a new piece of artwork for your campus.</p>
+            </div>
+          </div>
 
-    <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
-  </div>
-  <input type="text" class="form-control" placeholder="Leonardo Davinci" aria-label="artist name" aria-describedby="basic-addon1" required>
-</div>
+          <form id="main">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text"><i class="fa fa-university"></i></label>
+              </div>
+              <select class="custom-select" name="campus">
+                <option value=" ">Select your campus</option>
+                <option value="1">CUNY Brooklyn College</option>
+                <option value="2">CUNY Queens College</option>
+                <option value="3">CUNY City College</option>
+              </select>
+            </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text"><i class="fa fa-paint-brush"></i></span>
-  </div>
-  <input type="text" class="form-control" placeholder="Mona Lisa" required>
-  <!-- <div class="input-group-append">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Leonardo Davinci" aria-label="artist name"
+                aria-describedby="basic-addon1" name="artist">
+                <br><span  style="color:red; width: 100%;"  id="artist_error"></span> 
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-paint-brush"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Mona Lisa" name="title">
+              <!-- <div class="input-group-append">
     <span class="input-group-text">.00</span>
   </div> -->
-</div>
+            </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-  </div>
-  <input type="text" class="form-control" placeholder="1503" required>
-  <!-- <div class="input-group-append">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="1503" name="date">              
+              <span style="color:red; width: 100%;"  id="date_error"></span>
+              <!-- <div class="input-group-append">
     <span class="input-group-text">.00</span>
   </div> -->
-</div>
+            </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroupFileAddon01"><i class="fa fa-image"></i></span>
-  </div>
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-  </div>
-</div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupFileAddon01"><i class="fa fa-image"></i></span>
+              </div>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile01"
+                  aria-describedby="inputGroupFileAddon01" name="image">
+                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+              </div>
+            </div>
 
-<div class="input-group">
-  <div class="input-group-prepend">
-    <span class="input-group-text"><i class="fa fa-search"></i></span>
-  </div>
-  <textarea class="form-control" aria-label="With textarea" placeholder="Look for the girl with the mysterious smile..." required></textarea>
-</div>
-</form>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-search"></i></span>
+              </div>
+              <textarea class="form-control" aria-label="With textarea"
+                placeholder="Look for the girl with the mysterious smile..." name="clue" required></textarea>
+            </div>
 
-<br>
 
-<div class="input-group">
-  <div class="input-group-prepend">
-    <span class="input-group-text"><i class="fa fa-edit"></i></span>
-  </div>
-  <textarea class="form-control" aria-label="With textarea" placeholder="Additional details" required></textarea>
-</div>
-<br>
-<button class="btn btn-primary" type="submit">Submit form</button>
-</form>
+            <br>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-edit"></i></span>
+              </div>
+              <textarea class="form-control" aria-label="With textarea" placeholder="Additional details"
+                name="description" required></textarea>
+            </div>
+            <br>
+            <button class="btn btn-primary" onclick="handleFormSubmit()" type="submit">Submit form</button>
+          </form>
 
 
 </body>
+
 </html>
+
+
+<script>
+
+
+
+  // Before using it we must add the parse and format functions
+  // Here is a sample implementation using moment.js
+  validate.extend(validate.validators.datetime, {
+    // The value is guaranteed not to be null or undefined but otherwise it
+    // could be anything.
+    parse: function (value, options) {
+      return +moment.utc(value);
+    },
+    // Input is a unix timestamp
+    format: function (value, options) {
+      var format = options.dateOnly ? "YYYY-MM-DD" : "YYYY-MM-DD hh:mm:ss";
+      return moment.utc(value).format(format);
+    }
+  });
+
+  // These are the constraints used to validate the form
+  var constraints = {
+    artist: {
+      // You need to pick a username too
+      presence: true,
+      // And it must be between 3 and 20 characters long
+      length: {
+        minimum: 3,
+        maximum: 20
+      },
+      format: {
+        // We don't allow anything that a-z and 0-9
+        pattern: "^[A-Za-z.\s_-]+$",
+        // but we don't care if the username is uppercase or lowercase
+        flags: "i",
+        message: "can only contain letters, periods, dashes"
+      }
+    },
+    date: {
+      // The user needs to give a birthday
+      presence: true,
+    }
+  };
+
+  let form = $("form#main");
+
+
+
+  function handleFormSubmit() {
+    // validate the form against the constraints
+    var errors = validate(form, constraints);
+    console.log(errors);
+
+    // then we update the form to reflect the results
+    showErrors(errors || {});
+    if (!errors) {
+      showSuccess();
+    }
+  }
+
+      // Updates the inputs with the validation errors
+      function showErrors(errors) {
+        console.log("in show errors");
+        console.log($(form).find("input"));
+        // We loop through all the inputs and show the errors for that input
+        $.each($(form).find("input"), (index, input) => {
+          console.log($(input));
+
+          // Since the errors can be null if no errors were found we need to handle
+          // that
+          showErrorsForInput(input, errors[input.name]);
+        });
+      }
+
+      // Shows the errors for a specific input
+      function showErrorsForInput(input, error) {
+        console.log(input);
+        console.log(error);
+        if(error){
+          $("#"+input.name+"_error").html(error);
+        }
+      }
+
+
+</script>
