@@ -31,7 +31,8 @@
     <p class="lead">Complete the fields below to submit a new piece of artwork for your campus.</p>
   </div>
 </div>
-  
+
+  <!--Select campus -->
   <form name="artForm" onsubmit="return validateForm()" method="post">
   	<div class="input-group mb-3">
   <div class="input-group-prepend">
@@ -45,31 +46,28 @@
   </select>
 </div>
 
-    <div class="input-group mb-3">
+ <!--Artist name-->
+   <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
   </div>
   <input type="text" id="artist" class="form-control" placeholder="Leonardo Davinci" aria-label="artist name" aria-describedby="basic-addon1" required> 
 </div>
 
+ <!--Artwork title -->
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text"><i class="fa fa-paint-brush"></i></span>
   </div>
   <input type="text" id="artTitle" class="form-control" placeholder="Mona Lisa" required>
-  <!-- <div class="input-group-append">
-    <span class="input-group-text">.00</span>
-  </div> -->
 </div>
 
+ <!--Artwork year of creation -->
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text"><i class="fa fa-calendar"></i></span>
   </div>
-  <input type="text" class="form-control" placeholder="1503" required>
-  <!-- <div class="input-group-append">
-    <span class="input-group-text">.00</span>
-  </div> -->
+  <input type="text" id="artYear" class="form-control" placeholder="1503" required>
 </div>
 
 <div class="input-group mb-3">
@@ -82,18 +80,22 @@
   </div>
 </div>
 
+ <!--Clue textbook -->
 <div class="input-group">
   <div class="input-group-prepend">
     <span class="input-group-text"><i class="fa fa-search"></i></span>
   </div>
   <textarea class="form-control" aria-label="With textarea" placeholder="Look for the girl with the mysterious smile..." required></textarea>
 </div>
+
 <br>
+
+ <!--Additional details/description-->
 <div class="input-group">
   <div class="input-group-prepend">
     <span class="input-group-text"><i class="fa fa-edit"></i></span>
   </div>
-  <textarea class="form-control" aria-label="With textarea" placeholder="Additional details" required></textarea>
+  <textarea class="form-control" id="desc" aria-label="With textarea" placeholder="Additional details" required></textarea>
 </div>
 <br>
 <button onclick="validateForm()" input type="submit" id="submitForm">Submit</button>
@@ -108,12 +110,6 @@
 
 <script>
 
-	$("#submitform").click(()=> {
-		console.log();
-	});
-
-	$('#artTitle').val()
-
 	con = new StrapiApiConnection();
 	userLogin();
 
@@ -121,13 +117,14 @@ async function userLogin() {
 	await con.loginUser("artworkmanager","2h2Ghswq$%Oxcl");
 }
 async function validateForm() {
-  if (document.getElementById("arttitle").validity.valueMissing) {
+  if (document.getElementById("artTitle").validity.valueMissing) {
     console.log("Cannot be empty");
   } else {
     console.log("OK");
   } 
-const newArtwork = await con.createArtwork({title: "new artwork from js", artist:"new artist", description:"test description", year: "2000"});
-   console.log("new artwork",newArtwork);
+const newArtwork = await con.createArtwork({title: $("#artTitle").val(), artist:$("#artist").val(), description:$("#desc").val(), year: $("#artYear").val()});
+   //console.log("new artwork",newArtwork);
+   //console.log($("#artTitle").val());
 
 }
 </script>
