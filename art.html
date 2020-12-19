@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
-<title>Gallery Data Entry</title>
-<link rel="shortcut icon" type="image/jpg" href="CUNYGalleryColor.png">
+  <title>Gallery Data Entry</title>
+  <link rel="shortcut icon" type="image/jpg" href="CUNYGalleryColor.png">
   <meta charset="utf-8">
   <meta charset="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="artsheet.css">
@@ -26,108 +27,128 @@
             Enter data for your campus's artwork
           </h4> -->
           <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Welcome to Gallery</h1>
-    <p class="lead">Complete the fields below to submit a new piece of artwork for your campus.</p>
-  </div>
-</div>
-  
-  <form name="artForm" onsubmit="return validateForm()" method="post">
-  	<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <label class="input-group-text"><i class="fa fa-university"></i></label>
-  </div>
-  <select class="custom-select" name="campus" required>
-    <option value=" ">Select your campus</option>
-    <option value="1">CUNY Brooklyn College</option>
-    <option value="2">CUNY Queens College</option>
-    <option value="3">CUNY City College</option>
-  </select>
-</div>
+            <div class="container">
+              <h1 class="display-4">Welcome to Gallery</h1>
+              <p class="lead">Complete the fields below to submit a new piece of artwork for your campus.</p>
+            </div>
+          </div>
 
-    <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
-  </div>
-  <input type="text" id="artist" class="form-control" placeholder="Leonardo Davinci" aria-label="artist name" aria-describedby="basic-addon1" required> 
-</div>
+          
+          <form name="artForm" id="artForm" method="post">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text"><i class="fa fa-university"></i></label>
+              </div>
+              <select class="custom-select" name="campus" required>
+                <option value=" ">Select your campus</option>
+                <option value="1">CUNY Brooklyn College</option>
+                <option value="2">CUNY Queens College</option>
+                <option value="3">CUNY City College</option>
+              </select>
+            </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text"><i class="fa fa-paint-brush"></i></span>
-  </div>
-  <input type="text" id="artTitle" class="form-control" placeholder="Mona Lisa" required>
-  <!-- <div class="input-group-append">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+              </div>
+              <input type="text" id="artist" class="form-control" placeholder="Leonardo Davinci"
+                aria-label="artist name" aria-describedby="basic-addon1" required>
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-paint-brush"></i></span>
+              </div>
+              <input type="text" id="artTitle" class="form-control" placeholder="Mona Lisa" required>
+              <!-- <div class="input-group-append">
     <span class="input-group-text">.00</span>
   </div> -->
-</div>
+            </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-  </div>
-  <input type="text" class="form-control" placeholder="1503" required>
-  <!-- <div class="input-group-append">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+              </div>
+              <input type="text" id="artYear" class="form-control" placeholder="1503" required>
+              <!-- <div class="input-group-append">
     <span class="input-group-text">.00</span>
   </div> -->
-</div>
+            </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroupFileAddon01"><i class="fa fa-image"></i></span>
-  </div>
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01"  required>
-    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-  </div>
-</div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupFileAddon01"><i class="fa fa-image"></i></span>
+              </div>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile01"
+                  aria-describedby="inputGroupFileAddon01">
+                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+              </div>
+            </div>
 
-<div class="input-group">
-  <div class="input-group-prepend">
-    <span class="input-group-text"><i class="fa fa-search"></i></span>
-  </div>
-  <textarea class="form-control" aria-label="With textarea" placeholder="Look for the girl with the mysterious smile..." required></textarea>
-</div>
-<br>
-<div class="input-group">
-  <div class="input-group-prepend">
-    <span class="input-group-text"><i class="fa fa-edit"></i></span>
-  </div>
-  <textarea class="form-control" aria-label="With textarea" placeholder="Additional details" required></textarea>
-</div>
-<br>
-<button onclick="validateForm()" input type="submit" id="submitForm">Submit</button>
-</form>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-search"></i></span>
+              </div>
+              <textarea class="form-control" aria-label="With textarea" id="artworkClue"
+                placeholder="Look for the girl with the mysterious smile..." required></textarea>
+            </div>
+            <br>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-edit"></i></span>
+              </div>
+              <textarea class="form-control" id="desc" aria-label="With textarea" placeholder="Additional details"
+                required></textarea>
+            </div>
+            <br>
+            <button input type="submit" id="submitForm">Submit</button>
+          </form>
 
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+
 <script src="https://cunycampusart.com/scripts/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="StrapiApiConnectionClass.js"></script>
-<script src="strapapi.js"></script>
-</html>
 
 <script>
 
-	$("#submitform").click(()=> {
-		console.log();
-	});
+  con = new StrapiApiConnection();
+  userLogin();
 
-	$('#artTitle').val()
+  async function userLogin() {
+    await con.loginUser("artworkmanager", "2h2Ghswq$%Oxcl");
+  }
 
-	con = new StrapiApiConnection();
-	userLogin();
+  async function validateForm() {
+    if (document.getElementById("artTitle").validity.valueMissing) {
+      console.log("Cannot be empty");
+    } else {
+      const response = await con.createArtwork({title: $("#artTitle").val(), 
+                                                artist:$("#artist").val(), 
+                                                description:$("#desc").val(), 
+                                                year: $("#artYear").val(),
+                                                clue: {Clue: $('#artworkClue').val(), Points: 10}
+                                              });
+  
+    }
 
-async function userLogin() {
-	await con.loginUser("artworkmanager","2h2Ghswq$%Oxcl");
-}
-async function validateForm() {
-  if (document.getElementById("arttitle").validity.valueMissing) {
-    console.log("Cannot be empty");
-  } else {
-    console.log("OK");
-  } 
-const newArtwork = await con.createArtwork({title: "new artwork from js", artist:"new artist", description:"test description", year: "2000"});
-   console.log("new artwork",newArtwork);
+  }
 
-}
+  $( "#artForm" ).submit(( event ) => {
+    event.preventDefault();
+    validateForm();    
+  });
+
+
 </script>
+
+</html>

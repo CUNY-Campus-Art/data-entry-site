@@ -1,8 +1,8 @@
 class StrapiApiConnection {
 
   constructor(username, password) {
-    this.strapiUrl = "https://dev-cms.cunycampusart.com"; //url to strapi API endpoint
-    //this.strapiUrl = "http://localhost:1337"; //url to strapi API endpoint
+    //this.strapiUrl = "https://dev-cms.cunycampusart.com"; //url to strapi API endpoint
+    this.strapiUrl = "http://localhost:1337"; //url to strapi API endpoint
     this.authToken = "";
     this.user = {}
 
@@ -231,6 +231,55 @@ class StrapiApiConnection {
     console.log(response);
     return response;
   }
+
+  /*updateClueForArtworkById
+  Function to update a artworks likes count by 1
+  Accepts:
+   - id - artwork id
+   - clueText - text of of the clue
+   - cluePoints - points given for solving the clue
+  Returns: api request reponse
+  */
+ updateClueForArtworkById = async (idIn, clueText, cluePoints) => {
+  const sendConfig = {
+    headers: {
+      'Authorization': "Bearer " + this.authToken,
+      'Content-Type': 'application/json'
+    }
+  };
+
+  let sendData = {};
+  if(clueText==undefined||clueText==""){
+    sendData = JSON.stringify({
+      clue: null,
+    });
+  }else{
+    sendData = JSON.stringify({
+      clue: {clue: clueText, points: cluePoints}
+    });
+  }
+
+
+  // const xhr = new XMLHttpRequest();
+  // xhr.open('PUT', this.strapiUrl + "/artworks/"+idIn, true);
+  // xhr.setRequestHeader('Content-Type', 'application/json');
+  // xhr.setRequestHeader('Authorization', "Bearer " + this.authToken);
+  
+    
+  // console.log(clueText);
+  // console.log(cluePoints);
+  // xhr.send(
+  //   JSON.stringify({
+  //     clue: null
+  //   })
+  // );
+
+
+  let response = await con.axiosPutToStrapi(this.strapiUrl + "/artworks", sendData, sendConfig);
+  console.log(response);
+  return response;
+}
+
 
 
   /* deleteArtworkById
@@ -730,7 +779,7 @@ class StrapiApiConnection {
     if (returnedData.status == 200) {
       return returnedData;
     } else {
-      console.log('Error in axiosPostToStrapi');
+      console.log('Error in axiosPutToStrapi');
       console.log(returnedData);
       return -1;
     }
